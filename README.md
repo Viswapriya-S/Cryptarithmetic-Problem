@@ -1,6 +1,6 @@
 <h1>ExpNo 8 : Solve Cryptarithmetic Problem,a CSP(Constraint Satisfaction Problem) using Python</h1> 
-<h3>Name:               </h3>
-<h3>Register Number/Staff Id:       </h3>
+<h3>Name:   Viswapriya S            </h3>
+<h3>Register Number: 212225230311       </h3>
 <H3>Aim:</H3>
 <p>
     To solve Cryptarithmetic Problem,a CSP(Constraint Satisfaction Problem) using Python
@@ -77,6 +77,47 @@ SEND = 9567<br>
 MORE = 1085<br>
 <hr>
 MONEY = 10652<br>
+
+## PROGRAM:
+```
+from itertools import permutations
+
+def solve_cryptarithmetic():
+    letters = "SENDMORY"
+    digits = "0123456789"
+
+    for p in permutations(digits, len(letters)):
+        s, e, n, d, m, o, r, y = p
+
+        if s == '0' or m == '0':
+            continue
+
+        send = int(s + e + n + d)
+        more = int(m + o + r + e)
+        money = int(m + o + n + e + y)
+
+        if send + more == money:
+            print("Solution Found:")
+            print("SEND =", send)
+            print("MORE =", more)
+            print("MONEY =", money)
+            print("\nLetter-Digit Mapping:")
+
+            for letter, digit in zip(letters, p):
+                print(letter, "=", digit)
+
+            return
+
+    print("No solution found.")
+
+
+solve_cryptarithmetic()
+```
+
+## OUTPUT:
+
+<img width="1527" height="371" alt="WhatsApp Image 2026-10-21 at 9 16 50 AM" src="https://github.com/user-attachments/assets/c2985656-2401-4bf9-9adf-c441293151af" />
+
 <hr>
 <h2>Result:</h2>
 <p> Thus a Cryptarithmetic Problem was solved using Python successfully</p>
